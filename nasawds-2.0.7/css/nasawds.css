@@ -2816,25 +2816,13 @@ dfn {
   width: 3.8rem;
 }
 
-.usa-footer {
-  background-color:#323A4B; 
-}
-.usa-footer-content {
-display:inline;
-margin-left:0.5em;
-}
-
-.usa-footer-title {
-  display:inline;
-}
-
 .usa-footer .usa-unstyled-list {
   display: block;
 }
 
 .usa-footer .usa-footer-primary-link {
   color: #212121;
-  display:block;
+  display: block;
   font-weight: 700;
   margin-top: 0;
   padding-bottom: 2rem;
@@ -3834,7 +3822,7 @@ fieldset {
 .usa-hero {
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background-image: url("../../non-nasawds-assets/img/nasa-yZygONrUBe8-unsplash.jpg");
+  background-image: url("../img/hero.png");
   background-position: center;
   background-size: cover;
 }

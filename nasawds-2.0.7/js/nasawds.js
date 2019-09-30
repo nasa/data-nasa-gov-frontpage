@@ -1077,7 +1077,7 @@ var PREFIX = require('../config').prefix;
 
 // XXX match .usa-accordion and .usa-accordion-bordered
 var ACCORDION = '.' + PREFIX + '-accordion, .' + PREFIX + '-accordion-bordered';
-var BUTTON = '.' + PREFIX + '-accordion-button[-controls]';
+var BUTTON = '.' + PREFIX + '-accordion-button[aria-controls]';
 var EXPANDED = 'aria-expanded';
 var MULTISELECTABLE = 'aria-multiselectable';
 
@@ -1100,13 +1100,13 @@ var toggleButton = function toggleButton(button, expanded) {
   // XXX multiselectable is opt-in, to preserve legacy behavior
   var multiselectable = accordion.getAttribute(MULTISELECTABLE) === 'true';
 
-  if (expanded && !multiselectable) {
+  /*if (expanded && !multiselectable) {
     forEach(getAccordionButtons(accordion), function (other) {
       if (other !== button) {
         toggle(other, false);
       }
     });
-  }
+  }*/
 };
 
 /**
@@ -1406,7 +1406,7 @@ var resize = function resize() {
     // The mobile nav is active, but the close box isn't visible, which
     // means the user's viewport has been resized so that it is no longer
     // in mobile mode. Let's make the page state consistent by
-    // deactivating the mobile nav.
+    // deactivating the mobile nav
     toggleNav.call(closer, false);
   }
 };
