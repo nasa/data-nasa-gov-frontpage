@@ -61,6 +61,10 @@ abbr{
     padding-bottom: 0.2rem;
   }
 
+  .spacer{
+    padding-top: 40px;
+  }
+
 }
 
 /*NasaWDS class overrides*/
@@ -70,7 +74,8 @@ abbr{
   overflow: hidden;
 }
 .usa-navbar{
-  height: 6rem;
+  height: 10rem;
+  padding-top: 2rem;
   box-shadow: 0px 4px 8px darkgrey !important;
 }
 .usa-logo{
@@ -81,7 +86,7 @@ abbr{
   padding-left: 2rem;
 }
 .usa-menu-btn{
-  height: 6rem;
+  height: 5rem;
   font-size: 1.7rem;
 }
 
@@ -120,6 +125,7 @@ a:focus {
 
 @media screen and (min-width: 951px) {
   .usa-navbar{
+    padding-top: 0;
     height: 100px !important;
     z-index: 10000;
     box-shadow: 0px 0px 0px darkgrey !important;

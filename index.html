@@ -15,7 +15,7 @@
 
 <!-- Title and meta description
 ================================================== -->
-<title>NASA | Open Data | NASA Open Data Portal</title>
+<title>NASA Open Data Portal</title>
 <meta property="og:title" content="NASA | Open Data | NASA Open Data Portal">
 
 
@@ -144,7 +144,7 @@
             <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="extended-nav-section-one">
               <span>Open-Innovation Sites</span>
             </button>
-            <ul id="extended-nav-section-one" class="usa-nav-submenu" style="text-align:left;">
+            <ul id="extended-nav-section-one" class="usa-nav-submenu" style="text-align:left; width: 202.23px">
               <li>
                 <a href="https://open.nasa.gov">Open.nasa.gov</a>
               </li>
@@ -163,7 +163,7 @@
             <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="extended-nav-section-two">
               <span>NASA Science Archives</span>
             </button>
-              <ul id="extended-nav-section-two" class="usa-nav-submenu" style="text-align:left;">
+              <ul id="extended-nav-section-two" class="usa-nav-submenu" style="text-align:left; width: 202.83px">
                   <li>
                       <a href="https://www.nasa.gov/open/data.html">List of Science & Mission Data Archives</a>
                   </li>
@@ -180,7 +180,7 @@
             <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="extended-nav-section-three">
               <span>Code & Data from All Fed Agencies</span>
             </button>
-            <ul id="extended-nav-section-three" class="usa-nav-submenu" style="text-align:left;">
+            <ul id="extended-nav-section-three" class="usa-nav-submenu" style="text-align:left; width: 283.33px">
               <li>
                 <a href="https://code.gov">Code.gov</a>
               </li>
@@ -198,14 +198,14 @@
 
 <main id="main-content">
   <section class="usa-hero">
-  <div class="usa-grid" style = "padding-top: 40px">
+  <div class="usa-grid spacer">
     <div class="usa-width-one-third">
       <div class="usa-hero-callout usa-section-dark">
           <h2>
             <span class="usa-hero-callout-alt">Want NASA data?</span>
         </h2>
             <a class="usa-button" href="https://data.nasa.gov/browse">Go to the DATA CATALOG</a>
-        <p>Or You can read about other open-government websites below</p>
+        <p>Or you can read about other open-government websites below.</p>
       </div>
     </div>
     <div class="usa-width-one-third" id="filler">
@@ -225,7 +225,7 @@
             </button>
           </form>
         </div>
-        <p>Search our database of tens of thousand datasets released to the public </p>
+        <p>Search our database of tens of thousand datasets released to the public! </p>
       </div>
     </div>
   </div>
@@ -285,14 +285,14 @@
   </div>
   <div class="usa-grid usa-graphic_list-row">
     <div class="usa-width-one-half usa-media_block">
-      <img class="usa-media_block-img"  src="./non-nasawds-assets/img/open.nasa.png" alt="Alt text">
+      <img class="usa-media_block-img"  src="./non-nasawds-assets/img/open.nasa.png" style = "filter: brightness(500%)" alt="Alt text">
       <div class="usa-media_block-body">
         <h3><a href="https://open.nasa.gov" style="text-decoration: none; color: #9bdaf1;">open.nasa.gov</a></h3>
         <p>More information about all open-innovation sites like code.nasa.gov and data.nasa.gov. Information about datanauts, a problem that lets the public collaborate with nasa. Information about federal open-data mandates that apply to NASA.</p>
       </div>
     </div>
     <div class="usa-width-one-half usa-media_block">
-      <img class="usa-media_block-img"  src="./non-nasawds-assets/img/data.nasa.png" alt="Alt text">
+      <img class="usa-media_block-img"  src="./non-nasawds-assets/img/data.nasa.png" style = "filter: brightness(130%)" alt="Alt text">
       <div class="usa-media_block-body">
         <h3>data.nasa.gov (this site)</h3>
         <p>NASA's central open-data site for the public. Aggregates data from different archives and datasets not available anywhere else. </p>
@@ -318,7 +318,7 @@
             <a href="https://www.nasa.gov/open/data.html">List of Other NASA Science & Mission Data Archives</a>
          </li>
       </ol>
-      <a class="usa-button usa-button-big" href="mailto:nasa-data@lists.arc.nasa.gov">Submit an issue if you know of another NASA data site that should be included!</a>
+      <a class="usa-button usa-button-big" onClick="window.location.href='mailto:nasa-data@lists.arc.nasa.gov';">Submit an issue if you know of another NASA data site that should be included!</a>
     </div>
   </section>
 
@@ -330,13 +330,21 @@
 
   // removes space between the first 2 blocks
   var isThirds = true;
+  if($(window).width() < 951 && isThirds == true){
+      isThirds = false;
+      var fill = $("#filler");
+      var firstDiv = fill.prev();
+      var lastDiv = fill.next();
+      firstDiv.removeClass("usa-width-one-third").addClass("usa-width-one-half");
+      lastDiv.removeClass("usa-width-one-third").addClass("usa-width-one-half");
+      fill.remove();
+    }
   $(window).resize(function(){
     if($(this).width() >= 951 && isThirds == false){
         isThirds = true;
         var fill = $('<div class="usa-width-one-third" id="filler"><div class="usa-hero-callout usa-section-dark" style="visibility: hidden"></div></div>');
         var firstDiv = $($(".usa-width-one-half")[2]);
         var lastDiv = $($(".usa-width-one-half")[3]);
-        console.log($(".usa-width-one-half"));
         firstDiv.removeClass("usa-width-one-half").addClass("usa-width-one-third");
         lastDiv.removeClass("usa-width-one-half").addClass("usa-width-one-third");
         fill.insertBefore(lastDiv);

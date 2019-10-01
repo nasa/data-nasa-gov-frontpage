@@ -18,6 +18,7 @@ document.onclick = function (e) {
         }
     }
   };
+
 //function replacing the "scrollTo" for href div calls
 function goTo(divName){
     var divTop = document.getElementById(divName).getBoundingClientRect().top;
@@ -38,7 +39,6 @@ function goTo(divName){
             });
     }
     else{
-        console.log("scroll");
         window.scrollBy({left: 0, top: divTop, behavior: "smooth"});
     }
 }
