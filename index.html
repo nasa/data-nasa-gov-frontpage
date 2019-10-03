@@ -103,14 +103,14 @@
 
   
 
-<header class="usa-header usa-header-extended" role="banner" id="myHeader">
+<header class="usa-header-dark usa-header-extended" role="banner" id="myHeader">
   <div class="usa-navbar">
     <div class="usa-logo" id="extended-logo">
       <em class="usa-logo-text"><a href="http://nasa.gov/" title="Home" aria-label="NASA logo">
         <img src="nasawds-2.0.7/img/favicons/favicon-192.png" alt="NASA logo but image did not load" class="usa-logo-img"> 
         <a href="javascript:void(0)"
           title="Home"
-          aria-label="Home">
+          aria-label="Home" style="color: #9bdaf1">
             DATA.NASA.GOV
         </a>
       </em>
@@ -146,16 +146,16 @@
             </button>
             <ul id="extended-nav-section-one" class="usa-nav-submenu" style="text-align:left; width: 202.23px">
               <li>
-                <a href="https://open.nasa.gov">Open.nasa.gov</a>
+                <a href="https://open.nasa.gov">Open.nasa.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" style = "width: 1rem;"></a>
               </li>
               <li>
-                <a href="https://api.nasa.gov">API.nasa.gov</a>
+                <a href="https://api.nasa.gov">API.nasa.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" style = "width: 1rem;"></a>
               </li>
               <li>
-                <a href="https://code.nasa.gov">Code.nasa.gov</a>
+                <a href="https://code.nasa.gov">Code.nasa.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" style = "width: 1rem;"></a>
               </li>
               <li>
-                <a href="https://open.nasa.gov/explore/datanauts/">Datanauts</a>
+                <a href="https://open.nasa.gov/explore/datanauts/">Datanauts <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" style = "width: 1rem;"></a>
               </li>
             </ul>
           </li>
@@ -165,13 +165,13 @@
             </button>
               <ul id="extended-nav-section-two" class="usa-nav-submenu" style="text-align:left; width: 202.83px">
                   <li>
-                      <a href="https://www.nasa.gov/open/data.html">List of Science & Mission Data Archives</a>
+                      <a href="https://www.nasa.gov/open/data.html">List of Science & Mission Data Archives <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" style = "width: 1rem;"></a>
                   </li>
                   <li>
-                      <a href="https://pds.nasa.gov">PDS</a>
+                      <a href="https://pds.nasa.gov">PDS <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" style = "width: 1rem;"></a>
                   </li>
                   <li>
-                      <a href="https://earthdata.nasa.gov">EODIS</a>
+                      <a href="https://earthdata.nasa.gov">EODIS <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" style = "width: 1rem;"></a>
                   </li>
                   
               </ul>
@@ -182,10 +182,10 @@
             </button>
             <ul id="extended-nav-section-three" class="usa-nav-submenu" style="text-align:left; width: 283.33px">
               <li>
-                <a href="https://code.gov">Code.gov</a>
+                <a href="https://code.gov">Code.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" style = "width: 1rem;"></a>
               </li>
               <li>
-                <a href="https://data.gov">Data.gov</a>
+                <a href="https://data.gov">Data.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" style = "width: 1rem;"></a>
               </li>
             </ul>
           </li>
@@ -201,11 +201,11 @@
   <div class="usa-grid spacer">
     <div class="usa-width-one-third">
       <div class="usa-hero-callout usa-section-dark">
-          <h2>
-            <span class="usa-hero-callout-alt">Want NASA data?</span>
+          <h2 style = "font-size: 3rem">
+            Want NASA data?
         </h2>
-            <a class="usa-button" href="https://data.nasa.gov/browse">Go to the DATA CATALOG</a>
-        <p>Or you can read about other open-government websites below.</p>
+        <p><br>Check out our data catalog below or you can read about other open-government websites further down the page.</p>
+        <a class="usa-button" href="https://data.nasa.gov/browse">Go to the DATA CATALOG</a>
       </div>
     </div>
     <div class="usa-width-one-third" id="filler">
@@ -213,19 +213,19 @@
     </div>
     <div class="usa-width-one-third">
       <div class="usa-hero-callout usa-section-dark">
-          <h2>
-            <span class="usa-hero-callout-alt">Know what you are looking for?</span>
+          <h2 style = "font-size: 3rem">
+            Know what you are looking for?
         </h2>
+        <p><br>Search for it in our catalog of tens of thousand datasets released to the public! </p>
         <div role="search">
           <form class="usa-search usa-search-small" action="https:/data.nasa.gov/browse">
             <label class="usa-sr-only" for="search-field-small">Search small</label>
-            <input id="search-field-small" type="search" name="q">
+            <input id="search-field-small" type="search" name="q" style = "z-index: 3000">
             <button type="submit">
               <span class="usa-sr-only">Search</span>
             </button>
           </form>
         </div>
-        <p>Search our database of tens of thousand datasets released to the public! </p>
       </div>
     </div>
   </div>
@@ -268,17 +268,17 @@
   <div class="usa-grid usa-graphic_list-row">
         
     <div class="usa-width-one-half usa-media_block">
-      <img class="usa-media_block-img"  src="./non-nasawds-assets/img/code.nasa.png" alt="Alt text">
+      <img class="usa-media_block-img"  src="./non-nasawds-assets/img/code.nasa.png" style = "filter: brightness(170%)" alt="Alt text">
       <div class="usa-media_block-body">
-        <h3><a href="https://code.nasa.gov" style="text-decoration: none; color: #9bdaf1;">code.nasa.gov</a></h3>
+        <h3><a href="https://code.nasa.gov" class = "OISite">code.nasa.gov</a></h3>
         <p>A page that contains information on links to all open-sourced NASA code projects.</p>
       </div>
     </div>
     <div class="usa-width-one-half usa-media_block">
     
-      <img class="usa-media_block-img"  src="./non-nasawds-assets/img/api.nasa.png" alt="Alt text">
+      <img class="usa-media_block-img"  src="./non-nasawds-assets/img/api.nasa.png" style = "filter: brightness(130%)" alt="Alt text">
       <div class="usa-media_block-body">
-        <h3><a href="https://api.nasa.gov" style="text-decoration: none; color: #9bdaf1;">API.nasa.gov</a></h3>
+        <h3><a href="https://api.nasa.gov" class = "OISite">API.nasa.gov</a></h3>
         <p>A clearinghouse site for information about NASA APIs. Acts a passthrough site to NASA APIs elsewhere. Request a key and get to work!</p>
       </div>
     </div>
@@ -287,7 +287,7 @@
     <div class="usa-width-one-half usa-media_block">
       <img class="usa-media_block-img"  src="./non-nasawds-assets/img/open.nasa.png" style = "filter: brightness(500%)" alt="Alt text">
       <div class="usa-media_block-body">
-        <h3><a href="https://open.nasa.gov" style="text-decoration: none; color: #9bdaf1;">open.nasa.gov</a></h3>
+        <h3><a href="https://open.nasa.gov" class = "OISite">open.nasa.gov</a></h3>
         <p>More information about all open-innovation sites like code.nasa.gov and data.nasa.gov. Information about datanauts, a problem that lets the public collaborate with nasa. Information about federal open-data mandates that apply to NASA.</p>
       </div>
     </div>
