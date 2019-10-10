@@ -1,7 +1,10 @@
 html{
   max-width: 100%;
 }
-
+.linkImg{
+  width: 1rem;
+  filter: invert(100%);
+}
 
 /* The sticky class is added to the header with JS when it reaches its scroll position */
 .sticky {
@@ -72,6 +75,9 @@ abbr{
 
   .spacer{
     padding-top: 40px;
+  }
+  .linkImg{
+    filter: invert(0%);
   }
 
 }
@@ -160,6 +166,9 @@ a:focus {
   .usa-nav-primary>li{
     padding-left: 3.5rem !important;
     padding-right: 3.5rem !important;
+  }
+  .usa-header-extended .usa-nav-primary button[aria-expanded=true] span{
+    border-bottom: .7rem solid #9bdaf1;
   }
 }
 @media screen and (min-width:600px){
