@@ -6,6 +6,18 @@ html{
   filter: invert(100%);
 }
 
+h4 {
+  color: #105bd8;
+}
+
+a {
+  color: dimgray;
+}
+
+a:visited{
+  color: black;
+}
+
 /* The sticky class is added to the header with JS when it reaches its scroll position */
 .sticky {
   position: -webkit-sticky;
