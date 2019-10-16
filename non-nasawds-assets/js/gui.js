@@ -141,3 +141,9 @@ function resolveAfterTenthSeconds() {
         alert(result);
     }
 }
+
+function closeSubMenu(controlName){
+    var buttonSM = "button[aria-controls='" + controlName + "'"
+    $(buttonSM).attr("aria-expanded", "false");
+    $("#" + controlName).attr("aria-hidden", true);
+}

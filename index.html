@@ -132,7 +132,7 @@
               <a href="https://data.nasa.gov/stories/s/gk8h-th3y">Developers</a>
             </li>
             <li>
-              <a href="https://data.nasa.gov/login">
+              <a href="https://data.nasa.gov/login" onfocusin = "new function(){closeSubMenu('extended-nav-section-one')}" >
                 Sign-in
               </a>
             </li>
@@ -141,10 +141,10 @@
       <div class="usa-nav-inner">
         <ul class="usa-nav-primary usa-accordion">
           <li>
-            <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="extended-nav-section-one">
+            <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="extended-nav-section-one" onfocusin = "new function(){closeSubMenu('extended-nav-section-two')}">
               <span>Open-Innovation Sites</span>
             </button>
-            <ul id="extended-nav-section-one" class="usa-nav-submenu" style="text-align:left; width: 202.23px">
+            <ul id="extended-nav-section-one" class="usa-nav-submenu" style="text-align:left; width: 202.23px" >
               <li>
                 <a href="https://open.nasa.gov">Open.nasa.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
               </li>
@@ -155,12 +155,12 @@
                 <a href="https://code.nasa.gov">Code.nasa.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
               </li>
               <li>
-                <a href="https://open.nasa.gov/explore/datanauts/">Datanauts <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
+                <a href="https://open.nasa.gov/explore/datanauts/" onfocusout = "new function(){closeSubMenu('extended-nav-section-one')}" >Datanauts <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
               </li>
             </ul>
           </li>
           <li>
-            <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="extended-nav-section-two">
+            <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="extended-nav-section-two" onfocusin = "new function(){closeSubMenu('extended-nav-section-three')}">
               <span>NASA Science Archives</span>
             </button>
               <ul id="extended-nav-section-two" class="usa-nav-submenu" style="text-align:left; width: 202.83px">
@@ -171,7 +171,7 @@
                       <a href="https://pds.nasa.gov">PDS <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
                   </li>
                   <li>
-                      <a href="https://earthdata.nasa.gov">EODIS <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
+                      <a href="https://earthdata.nasa.gov" onfocusout = "new function(){closeSubMenu('extended-nav-section-two')}" >EODIS <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
                   </li>
                   
               </ul>
@@ -185,7 +185,7 @@
                 <a href="https://code.gov">Code.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
               </li>
               <li>
-                <a href="https://data.gov">Data.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
+                <a href="https://data.gov" onfocusout = "new function(){closeSubMenu('extended-nav-section-three')}">Data.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
               </li>
             </ul>
           </li>
@@ -247,14 +247,12 @@
 </section>
   <section class="usa-grid usa-section">
     <div class="usa-width-one-third">
-      <h2>The Wider NASA Open Data Universe</h2>
+      <h2>Open Dataset Resourses Tied to Data.nasa.gov</h2>
     </div>
     <div class="usa-width-two-thirds">
       <h3>NASA datasets are available through a number of different websites, not just data.nasa.gov.</h3>
       <h4>Open-Innovation Program</h4>
       <p> Data.nasa.gov is the dataset-focused site of NASA's OCIO (Office of the Chief Information Officer) open-innovation program. There are also API.nasa.gov and Code.nasa.gov for APIs and Code respectively. Open.nasa.gov is the central page for open-innovation sites and acts as as a home for the datanauts program, which is a public outreach program where members of the public work with NASA datasets.</p>
-      <h4>Non-Open-Innovation Program Sites</h4>
-      <p>Additionally, NASA has a number of data archieves, often geared around providing the public with datasets from a particular domain, field of science, or mission. Lastly, there are also open-data and open-code aggregator sites that collect open-data and open-code from across all federal government agencies; code.gov and data.gov. Both of these have some APIs for working with their datasets that make them worth checking out even if you're strickly interested in NASA data. </p>
 
     </div>
   </section>
@@ -263,7 +261,7 @@
   <section class="usa-section usa-section-dark usa-graphic_list">
     
         <div class="usa-grid" style="margin-bottom:2em;text-align: center">
-            <h2>Other Open Innovation Sites</h2>
+            <h2>Open Innovation Sites</h2>
         </div>
   <div class="usa-grid usa-graphic_list-row">
         
@@ -278,7 +276,7 @@
     
       <img class="usa-media_block-img"  src="./non-nasawds-assets/img/api.nasa.png" style = "filter: brightness(130%)" alt="Alt text">
       <div class="usa-media_block-body">
-        <h3 style= "padding-top: 5px; padding-left: 5px;"><a href="https://api.nasa.gov" class = "OISite">API.nasa.gov</a></h3>
+        <h3 style= "padding-top: 5px; padding-left: 5px;"><a href="https://api.nasa.gov" class = "OISite">api.nasa.gov</a></h3>
         <p>A clearinghouse site for information about NASA APIs. Acts a passthrough site to NASA APIs elsewhere. Request a key and get to work!</p>
       </div>
     </div>
@@ -305,9 +303,10 @@
   <section class="usa-section">
     <div class="usa-grid">
       <div class="usa-width-one-third">
-        <h2>Science Archives & other NASA Data Sites</h2>
+        <h2>Other NASA Data Sites and Science Archives</h2>
       </div>
       <div class = "usa-width-two-thirds">
+        <p>Additionally, NASA has a number of data archives, often geared around providing the public with datasets from a particular domain, field of science, or mission. Lastly, there are also open-data and open-code aggregator sites that collect open-data and open-code from across all federal government agencies; code.gov and data.gov. Both of these have some APIs for working with their datasets that make them worth checking out even if you're strickly interested in NASA data. </p>
         <h3><a href="https://www.nasa.gov/open/data.html">nasa.gov/open/data</a> has a good overview of all the various science and mission data sites.</h3>
         <h4>A few highligts includes:</h4>
         <ol>

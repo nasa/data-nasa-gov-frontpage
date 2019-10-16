@@ -14,10 +14,6 @@ a {
   color: dimgray;
 }
 
-a:visited{
-  color: black;
-}
-
 /* The sticky class is added to the header with JS when it reaches its scroll position */
 .sticky {
   position: -webkit-sticky;
