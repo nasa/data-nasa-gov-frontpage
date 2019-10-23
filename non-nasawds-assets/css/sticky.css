@@ -59,6 +59,7 @@ abbr{
 
 .usa-logo-img{
   max-width: 40px;
+  margin-top: 5px;
 }
 .usa-media_block-img{
   width: 12%;
@@ -95,12 +96,9 @@ abbr{
   overflow: hidden;
 }
 .usa-navbar{
-  height: 10rem;
-  padding-top: 2rem;
+  height: 7rem;
+  padding-top: 1rem;
   box-shadow: 0px 4px 8px darkgrey !important;
-}
-.usa-logo{
-  line-height: 6rem;
 }
 .usa-logo-text{
   font-size: 2.3rem;
@@ -172,8 +170,8 @@ a:focus {
     padding-left: 3.5rem !important;
     padding-right: 3.5rem !important;
   }
-  .usa-header-extended .usa-nav-primary button[aria-expanded=true] span{
-    border-bottom: .7rem solid #9bdaf1;
+  .usa-logo-img{
+    margin-top: 0px;
   }
 }
 @media screen and (min-width:600px){
