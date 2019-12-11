@@ -59,10 +59,10 @@
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 11000; /* Sit on top */
-  left: 0;
   top: 0;
-  width: 100vw; /* Full width */
-  height: 100vh; /* Full height */
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -70,11 +70,14 @@
 
 /* Modal Content/Box */
 .modal-content {
+  position: absolute; /* Stay in place */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+  padding: 20px 40px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 40%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -98,7 +101,7 @@
     var modal = document.getElementById("myModal");
     console.log(modal);
     // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+    var btn = document.getElementById("signinButton");
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -106,13 +109,11 @@
     // When the user clicks on the button, open the modal
     btn.onclick = function() {
       modal.style.display = "block";
-      console.log(modal.style.display);
     }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
       modal.style.display = "none";
-      console.log(modal.style.display);    
     }
 
     // When the user clicks anywhere outside of the modal, close it
@@ -137,7 +138,9 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <h2 style="margin-top: .5em">Important</h2>
+    <p>If you are a <strong>NASA employee</strong> and would like to upload new datasets, please send us an email at <a href="mailto:nasa-data@lists.arc.nasa.gov">nasa-data@lists.arc.nasa.gov</a> requesting a "Publisher" account. For more information on uploading data, you can visit our <a href="https://data.nasa.gov/login">README</a> (this link will only work if you are connected to the NASA network)</p>
+    <button onclick="window.location.href = 'https://data.nasa.gov/login';">Continue to Sign-In</button>
   </div>
 
 </div>
@@ -213,15 +216,8 @@
               <a href="https://data.nasa.gov/stories/s/gk8h-th3y">Developers</a>
             </li>
             <li>
-              <!-- Trigger/Open The Modal -->
-              <button id="myBtn">Open Modal</button>
-
-              
-
-
-              <!-- <a href="https://data.nasa.gov/login" onfocusin = "new function(){closeSubMenu('extended-nav-section-one')}" >
-                Sign-in
-              </a> -->
+              <!-- Trigger/Open The Sign In Modal -->
+              <a href="#" id="signinButton">Sign-In</a>
             </li>
           </ul>
         </div>
