@@ -21,6 +21,9 @@ document.onclick = function (e) {
 
 //function replacing the "scrollTo" for href div calls
 function goTo(divName){
+    if (divName == ""){
+        return 0;
+    }
     var divTop = document.getElementById(divName).getBoundingClientRect().top;
     //Space buffer base for Mobile vs Desktop view
     if(window.innerWidth > 951){

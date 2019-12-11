@@ -53,48 +53,6 @@
 
 	  
 <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA" id="_fed_an_ua_tag"></script>
-<style type="text/css">
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 11000; /* Sit on top */
-  top: 0;
-  left: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  position: absolute; /* Stay in place */
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fefefe;
-  padding: 20px 40px;
-  border: 1px solid #888;
-  width: 40%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}/* Popup box END */
-</style>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(){
     // Get the modal
@@ -109,11 +67,29 @@
     // When the user clicks on the button, open the modal
     btn.onclick = function() {
       modal.style.display = "block";
+      document.getElementById('contSignIn').focus();
     }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
       modal.style.display = "none";
+    }
+  span.addEventListener('keydown', spanFunct);
+  document.getElementById("contSignIn").addEventListener('keydown', spanFunct);
+    function spanFunct(e) {
+      if(document.activeElement.id != "contSignIn"){
+        if (e.keyCode == 13 || (e.keyCode === 9 && e.shiftKey)){
+          console.log(document.activeElement.id);
+          modal.style.display = "none";
+          btn.focus();
+        }
+      }
+      else{
+        if (e.keyCode === 9 && !e.shiftKey){
+          modal.style.display = "none";
+          btn.focus();
+        }
+      }
     }
 
     // When the user clicks anywhere outside of the modal, close it
@@ -123,6 +99,12 @@
       }
     }
     });
+    function exitModal(e){
+      console.log(this);
+      if(e.shiftKey){
+        document.getElementById("myModal").style.display = "none";
+      }
+    }
 </script>
 	  
   </head>
@@ -137,10 +119,10 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close" tabindex="0">&times;</span>
     <h2 style="margin-top: .5em">Important</h2>
-    <p>If you are a <strong>NASA employee</strong> and would like to upload new datasets, please send us an email at <a href="mailto:nasa-data@lists.arc.nasa.gov">nasa-data@lists.arc.nasa.gov</a> requesting a "Publisher" account. For more information on uploading data, you can visit our <a href="https://data.nasa.gov/login">README</a> (this link will only work if you are connected to the NASA network)</p>
-    <button onclick="window.location.href = 'https://data.nasa.gov/login';">Continue to Sign-In</button>
+    <p>If you are a <strong>NASA employee</strong> and would like to upload new datasets, please send us an email at <a href="mailto:nasa-data@lists.arc.nasa.gov">nasa-data@lists.arc.nasa.gov</a> requesting a "Publisher" account. For more information on uploading data, you can visit our <a href="https://developer.nasa.gov/OpenInnovation/data-nasa-gov-instructions" id = "SignInRM" >README</a> (this link will only work if you are connected to the NASA network)</p>
+    <button onclick="window.location.href = 'https://data.nasa.gov/login';" id= "contSignIn">Continue to Sign-In</button>
   </div>
 
 </div>
