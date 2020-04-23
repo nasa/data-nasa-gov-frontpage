@@ -1,0 +1,20 @@
+#vis-container {
+    display: flex; 
+    margin: 3em 2em; 
+}
+
+#id {
+    width:70%; 
+    height: auto; 
+    float: left;
+}
+
+#legend {
+    width:25%; 
+    height: auto; 
+    overflow: scroll; 
+    white-space: nowrap; 
+    padding: 0 10px; 
+    margin-top: 5%;
+}
+
