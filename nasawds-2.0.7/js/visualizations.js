@@ -2,8 +2,8 @@
 function create_treemap(data, tile) {
     let color = d3.scaleOrdinal(d3.schemeSet1);
     let format = d3.format(",d");
-    let height = 954;
-    let width = 954;
+    let height = 780;
+    let width = 780;
     let legendKeys = [];
     let margin = ({ top: 50, right: 5, bottom: 5, left: 5 });
 
@@ -76,12 +76,12 @@ function create_treemap(data, tile) {
         var svg2 = d3.select("#legend")
             .append("svg")
             .attr("width", 400)
-            .attr("height", 850);
+            .attr("height", 25 * legendKeys.length);
         
         // Legend vis
         var legend = svg2.append("g")
             .attr("class", "legend")
-            .attr('transform', 'translate(-20, 20)')  
+            .attr('transform', 'translate(-20, 13)')  
 
         legend.append('g')
             .selectAll('.legend-group')
@@ -187,10 +187,50 @@ changeNesting = (data) => {
 }
 
 ///=======/// EVENT LISTENERS: ///=======///
+var nestingNum = "1";
+var treemapLayout = "squarify";
 
+var makeLegendHTML = (num, layout) => {
+    return `
+            <div>
+                <small>NOTE: Only keywords with counts greater <br>
+                        than 100 are represented. For this reason, <br>
+                        some sources and categories have been <br>
+                        excluded. In addition, a dataset can have <br>
+                        several categories and keywords associated <br>
+                        with it. Note that the data gets updated <br>
+                        periodically and doesn’t reflect very <br>
+                        recently uploaded datasets.
+                </small>
+                <br>
+                <br>
+
+                <form>
+                    <label for="treemap-tile">Treemap view:</label>
+                    <select id="treemap-tile">
+                        <option value="squarify" ${layout === "squarify" ? "selected" : ""}>Squarify</option>
+                        <option value="binary" ${layout === "binary" ? "selected" : ""}>Binary</option>
+                        <!-- <option value="slice">Slice</option> -->
+                        <!-- <option value="dice">Dice</option> -->
+                        <!-- <option value="slice_dice">Slice & Dice</option> -->
+                    </select>
+                    
+                    <br>
+            
+                    <input id="nesting-order-1" name="nesting-order" type="radio" value="1" ${num === '1' ? "checked" : ""}>
+                    <label for="nesting-order-1">Source > Catergory > Keyword</label>
+                    
+                    <input id="nesting-order-2" name="nesting-order" type="radio" value="2" ${num === '2' ? "checked" : ""}>
+                    <label for="nesting-order-2">Catergory > Source > Keyword</label>
+                </form>
+            </div>
+        `
+}
 // When user changes treemap view
 $("#vis-container").on("change", "#treemap-tile", function() {
     $("#svg").html("");
+    treemapLayout = this.value;
+    $("#legend").html(makeLegendHTML(nestingNum, treemapLayout));
     if (hasNestingOrderChanged) {
         create_treemap(reversed_data, $("#treemap-tile").val());
     } else {
@@ -201,32 +241,8 @@ $("#vis-container").on("change", "#treemap-tile", function() {
 // When user changes nesting order
 $("#legend").on("change", 'input[type=radio][name=nesting-order]', function() {
     $("#svg").html("")
-    $("#legend").html(`
-        <form>
-            <small>
-                NOTE: Only keywords with counts greater than <br>
-                100 are represented. For this reason, some <br>
-                sources and categories have been excluded.
-            </small>
-            <br>
-            <br>
-            <label for="treemap-tile">Treemap view:</label>
-            <select id="treemap-tile">
-                <option value="squarify">Squarify</option>
-                <option value="binary">Binary</option>
-                <option value="slice">Slice</option>
-                <option value="dice">Dice</option>
-                <option value="slice_dice">Slice & Dice</option>
-            </select>
-            
-            <br>
-            <input id="nesting-order-1" name="nesting-order" type="radio" value="1" ${this.value === '1' ? "checked" : ""}>
-            <label for="nesting-order-1">Source > Catergory > Keyword</label>
-
-            <input id="nesting-order-2" name="nesting-order" type="radio" value="2" ${this.value === '2' ? "checked" : ""}>
-            <label for="nesting-order-2">Catergory > Source > Keyword</label>
-        </form>
-    `);
+    nestingNum = this.value;
+    $("#legend").html(makeLegendHTML(nestingNum));
 
     if (this.value === "1") {
         hasNestingOrderChanged = false;

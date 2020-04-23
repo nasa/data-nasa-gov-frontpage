@@ -49,6 +49,7 @@
 <!-- CSS
 ================================================== -->
 <link rel="stylesheet" href="nasawds-2.0.7/css/nasawds.min.css">
+<link rel="stylesheet" href="nasawds-2.0.7/css/visualizations.css">
 <link rel="stylesheet" href="non-nasawds-assets/css/sticky.css">
 
 <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA" id="_fed_an_ua_tag"></script>
@@ -208,36 +209,44 @@
 <div class="usa-overlay"></div>
 
 <main id="main-content">
-    <div style="display: flex; margin: 3em 2em;" id="vis-container">
-        <div style="width:70%; height: auto;" id="svg">
+    <div id="vis-container">
+      <div id="svg">
 
-        </div>
-        <div style="width:25%; height: auto; overflow: scroll; white-space: nowrap; padding: 0 10px; margin-top: 3.5%;" id="legend">
-            <form>
-                <small>NOTE: Only keywords with counts greater than <br>
-                      100 are represented. For this reason, some <br>
-                      sources and categories have been excluded.
-                </small>
-                <br>
-                <br>
+      </div>
+      <div id="legend">
+        <div>
+          <small>NOTE: Only keywords with counts greater <br>
+                than 100 are represented. For this reason, <br>
+                some sources and categories have been <br>
+                excluded. In addition, a dataset can have <br>
+                several categories and keywords associated <br>
+                with it. Note that the data gets updated <br>
+                periodically and doesn’t reflect very <br>
+                recently uploaded datasets.
+          </small>
+          <br>
+          <br>
 
-                <label for="treemap-tile">Treemap view:</label>
-                <select id="treemap-tile">
-                    <option value="squarify" selected>Squarify</option>
-                    <option value="binary">Binary</option>
-                    <option value="slice">Slice</option>
-                    <option value="dice">Dice</option>
-                    <option value="slice_dice">Slice & Dice</option>
-                </select>
-                
-                <br>
-                <input id="nesting-order-1" name="nesting-order" type="radio" value="1" checked>
-                <label for="nesting-order-1">Source > Catergory > Keyword</label>
+          <form>
+            <label for="treemap-tile">Treemap view:</label>
+            <select id="treemap-tile">
+                <option value="squarify" selected>Squarify</option>
+                <option value="binary">Binary</option>
+                <!-- <option value="slice">Slice</option> -->
+                <!-- <option value="dice">Dice</option> -->
+                <!-- <option value="slice_dice">Slice & Dice</option> -->
+            </select>
+            
+            <br>
     
-                <input id="nesting-order-2" name="nesting-order" type="radio" value="2">
-                <label for="nesting-order-2">Catergory > Source > Keyword</label>
-            </form>
+            <input id="nesting-order-1" name="nesting-order" type="radio" value="1" checked>
+            <label for="nesting-order-1">Source > Catergory > Keyword</label>
+
+            <input id="nesting-order-2" name="nesting-order" type="radio" value="2">
+            <label for="nesting-order-2">Catergory > Source > Keyword</label>
+          </form>
         </div>
+      </div>
     </div>
 </main>
 </body>
