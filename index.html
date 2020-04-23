@@ -328,7 +328,8 @@
           helping our users gain a better understanding as to what kind of data they can expect to find.
         </p>
         <img src="nasawds-2.0.7/img/treemap.png" alt="">
-        <a class="usa-button usa-button-big" href="/data_visualizations.html">Take me to the visualization page</a>
+        <!-- href added via JS -->
+        <a class="usa-button usa-button-big" id="vis-link">Take me to the visualization page</a>
       </div>      
     </section>
   </section>
@@ -417,6 +418,15 @@
   var h = $("#myHeader");
   h.addClass("sticky");
   insertFooterHere("main-content");
+
+  var getUrl = window.location;
+  var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+  if (baseUrl.search("http") === -1) {
+    $("#vis-link").attr("href", `${baseUrl}/data_visualizations.html`)
+  } else {
+    $("#vis-link").attr("href", `/data_visualizations.html`)
+  }
+  
 
   // removes space between the first 2 blocks
   var isThirds = true;
