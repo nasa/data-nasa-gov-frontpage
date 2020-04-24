@@ -421,12 +421,9 @@
 
   var getUrl = window.location;
   var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-  if (baseUrl.search("http") === -1) {
+  if (baseUrl.search("127.0.0.1") !== -1) {
     $("#vis-link").attr("href", `/data_visualizations.html`);
   } else {
-    // let tempArr = baseUrl.split('/');
-    // // tempArr.pop();
-    // baseUrl = tempArr.join('/');
     $("#vis-link").attr("href", `${baseUrl}/data_visualizations.html`);  
   }
   
