@@ -1,5 +1,5 @@
 // Used to create treemap, and its legend
-function create_treemap(data, tile) {
+var create_treemap = (data, tile) => {
     let color = d3.scaleOrdinal(d3.schemeSet1);
     let format = d3.format(",d");
     let height = 780;
@@ -107,7 +107,7 @@ function create_treemap(data, tile) {
 
 // Created to emulate observable's "DOM.uid()" method
 // Used for the treemap's clip path
-var ID = function (type) {
+var ID = (type) => {
     let out = {};
     let id_num = Math.random().toString(36).substr(2, 9);
     out["id"] = `O-${type}-${id_num}`;
@@ -115,9 +115,18 @@ var ID = function (type) {
     return out;
 };
 
+swap_acronyms = (source) => {
+    if (source in acronyms) {
+        return acronyms[source]["name"];
+    } else {
+        return source;
+    }
+}
+
 // Removes Categories and sources if empty
 clean_data_treemap = (data) => {
     for (let i = 0; i < data["children"].length; i++) {
+        data["children"][i]["name"] = swap_acronyms(data["children"][i]["name"]);
         for (let j = 0; j < data["children"][i]["children"].length; j++) {
             // Removing category if empty
             if (data["children"][i]["children"][j]["children"].length === 0) {
@@ -187,8 +196,6 @@ changeNesting = (data) => {
 }
 
 ///=======/// EVENT LISTENERS: ///=======///
-var nestingNum = "1";
-var treemapLayout = "squarify";
 
 var makeLegendHTML = (num, layout) => {
     return `
@@ -226,10 +233,11 @@ var makeLegendHTML = (num, layout) => {
             </div>
         `
 }
+
 // When user changes treemap view
-$("#vis-container").on("change", "#treemap-tile", function() {
-    $("#svg").html("");
-    treemapLayout = this.value;
+$("#legend").on("change", "#treemap-tile", () => {
+     $("#svg").html("");
+    treemapLayout = $("#treemap-tile").val();
     $("#legend").html(makeLegendHTML(nestingNum, treemapLayout));
     if (hasNestingOrderChanged) {
         create_treemap(reversed_data, $("#treemap-tile").val());
@@ -239,12 +247,11 @@ $("#vis-container").on("change", "#treemap-tile", function() {
 });
 
 // When user changes nesting order
-$("#legend").on("change", 'input[type=radio][name=nesting-order]', function() {
-    $("#svg").html("")
-    nestingNum = this.value;
-    $("#legend").html(makeLegendHTML(nestingNum));
-
-    if (this.value === "1") {
+$("#legend").on("change", 'input[type=radio][name=nesting-order]', () => {
+    $("#svg").html("");
+    nestingNum = $('input[type=radio][name=nesting-order]:checked').val();
+    $("#legend").html(makeLegendHTML(nestingNum, treemapLayout));
+    if (nestingNum === "1") {
         hasNestingOrderChanged = false;
         create_treemap(data, $("#treemap-tile").val());
     } else {
