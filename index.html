@@ -424,9 +424,9 @@
   if (baseUrl.search("http") === -1) {
     $("#vis-link").attr("href", `/data_visualizations.html`);
   } else {
-    let tempArr = baseUrl.split('/');
-    tempArr.pop();
-    baseUrl = tempArr.join('/');
+    // let tempArr = baseUrl.split('/');
+    // // tempArr.pop();
+    // baseUrl = tempArr.join('/');
     $("#vis-link").attr("href", `${baseUrl}/data_visualizations.html`);  
   }
   
