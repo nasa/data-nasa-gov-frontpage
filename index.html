@@ -419,6 +419,7 @@
   h.addClass("sticky");
   insertFooterHere("main-content");
 
+  // Creating link to data vis page
   var getUrl = window.location;
   var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
   if (baseUrl.search("127.0.0.1") !== -1) {
@@ -427,7 +428,6 @@
     $("#vis-link").attr("href", `${baseUrl}/data_visualizations.html`);  
   }
   
-
   // removes space between the first 2 blocks
   var isThirds = true;
   if($(window).width() < 951 && isThirds == true){

@@ -257,6 +257,8 @@
     insertFooterHere("main-content");
     // Main data that has been cleaned: Source > Catergory > Keyword
     var data;
+    // Acronym definitions and links JSON
+    var acronyms;
     // Same data but the nesting is switched: Catergory > Source > Keyword
     var reversed_data;
     // Different treemap layouts
@@ -269,11 +271,17 @@
     };
     // Flag for when the user has changed the nesting order
     var hasNestingOrderChanged = false;
+    // Default user treemap settings
+    var nestingNum = "1";
+    var treemapLayout = "squarify";
 
     d3.json("nasawds-2.0.7/json/data.json").then(d => {
-        data = clean_data_treemap(d);
-        reversed_data = changeNesting(data);
-        create_treemap(data, $("#treemap-tile").val());
+      d3.json("nasawds-2.0.7/json/acronyms.json").then(a => {
+          acronyms = a;
+          data = clean_data_treemap(d);
+          reversed_data = changeNesting(data);
+          create_treemap(data, $("#treemap-tile").val());
+      });
     });
 
 </script>

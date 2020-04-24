@@ -34,16 +34,15 @@
     }
 
     #legend div {
-        /* display: inline; */
         width: 50%;
-        padding: 10px 30px;
+        padding-top: 10px;
+        padding-right: 20%;
 
     }
 
     #legend svg {
         margin: 0 auto;
-        width: 50%;
-        /* display: inline; */
+        width: 40%;
     }
 }
 
@@ -59,15 +58,11 @@
        display: block;
     }     
     #legend div {
-        /* display: inline; */
         width: 90%;
-        padding: 10px 0px;
-
     }
 
     #legend svg {
         margin: 0 auto;
         width: 90%;
-        /* display: inline; */
     }
 }
