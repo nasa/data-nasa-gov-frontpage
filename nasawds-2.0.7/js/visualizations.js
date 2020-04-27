@@ -42,12 +42,25 @@ var create_treemap = (data, tile) => {
                 return outStr;
             });
 
-        leaf.append("rect")
+        leaf.append("a")
+            .attr("xlinke:href", d => {
+                let arr = d.ancestors().reverse().map(d => d.data.name)
+                let outStr;
+                // Creating the tooltip text
+                if (hasNestingOrderChanged) {
+                    outStr = `Keyword: ${d.data.name}\nUpload Source: ${arr[2]}\nCategory: ${arr[1]}\n\nCount: ${format(d.value)}`;
+                } else {
+                    outStr = `Keyword: ${d.data.name}\nUpload Source: ${arr[1]}\nCategory: ${arr[2]}\n\nCount: ${format(d.value)}`;
+                }
+                return `https://data.nasa.gov/browse?q= ${d.data.name}\n+ ${arr[1]}\n+ ${arr[2]}\n\n+ ${format(d.value)}&sortBy=relevance`
+            })
+            .append("rect")
             .attr("id", d => (d.leafUid = ID("leaf")).id)
             .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.name); })
             .attr("fill-opacity", 0.6)
             .attr("width", d => d.x1 - d.x0)
-            .attr("height", d => d.y1 - d.y0);
+            .attr("height", d => d.y1 - d.y0)
+            
 
         leaf.append("clipPath")
             .attr("id", d => (d.clipUid = ID("clip")).id)
