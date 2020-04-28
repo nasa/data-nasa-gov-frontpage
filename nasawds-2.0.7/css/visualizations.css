@@ -1,0 +1,74 @@
+h2 {
+    margin: 3em 1.5em 0.6em 1.5em;
+}
+
+h5 {
+    margin-top: .2em;
+}
+
+#vis-container {
+    display: flex;
+    margin: 0 2em;
+}
+
+#svg {
+    width:75%; 
+    height: auto;
+}
+
+#legend-div {
+    width: 33%; 
+    height: auto; 
+    padding: 0 10px;
+}
+
+#legend-form {
+    margin-bottom: 2em;
+}
+
+#legend {
+    height: auto; 
+    overflow: scroll; 
+    white-space: nowrap; 
+}
+#legend #treemap-tile{
+    /* white-space: nowrap; */
+}
+
+@media only screen and (max-width: 1090px) {
+    #vis-container {
+        display: block;
+    }
+
+    #svg {
+        width:100%;   
+        margin: 0 auto;    
+    }
+
+    #legend-div {
+       width: 100%;
+       display: flex;
+       flex-wrap: wrap;
+       padding-top: 0;
+    }
+    
+
+
+}
+
+@media only screen and (max-width: 950px) {
+    h2 {
+        margin-top: 1.2em;
+    }
+    #vis-container {
+        margin-top: 0;
+    }   
+}
+
+@media only screen and (max-width: 670px) {
+    #legend {
+       width: 100%;
+       display: block;
+    }     
+
+}
