@@ -5,7 +5,7 @@ var create_treemap = (data, tile) => {
     let height = 780;
     let width = 780;
     let legendKeys = [];
-    let margin = ({ top: 50, right: 5, bottom: 5, left: 5 });
+    let margin = ({ top: 0, right: 0, bottom: 5, left: 0 });
 
     let treemap = data => d3.treemap()
         .tile(tiles[tile])
@@ -210,48 +210,10 @@ changeNesting = (data) => {
 
 ///=======/// EVENT LISTENERS: ///=======///
 
-var makeLegendHTML = (num, layout) => {
-    return `
-            <div>
-                <small>NOTE: Only keywords with counts greater <br>
-                        than 100 are represented. For this reason, <br>
-                        some sources and categories have been <br>
-                        excluded. In addition, a dataset can have <br>
-                        several categories and keywords associated <br>
-                        with it. Note that the data gets updated <br>
-                        periodically and doesn’t reflect very <br>
-                        recently uploaded datasets.
-                </small>
-                <br>
-                <br>
-
-                <form>
-                    <label for="treemap-tile">Treemap view:</label>
-                    <select id="treemap-tile">
-                        <option value="squarify" ${layout === "squarify" ? "selected" : ""}>Squarify</option>
-                        <option value="binary" ${layout === "binary" ? "selected" : ""}>Binary</option>
-                        <!-- <option value="slice">Slice</option> -->
-                        <!-- <option value="dice">Dice</option> -->
-                        <!-- <option value="slice_dice">Slice & Dice</option> -->
-                    </select>
-                    
-                    <br>
-            
-                    <input id="nesting-order-1" name="nesting-order" type="radio" value="1" ${num === '1' ? "checked" : ""}>
-                    <label for="nesting-order-1">Source > Catergory > Keyword</label>
-                    
-                    <input id="nesting-order-2" name="nesting-order" type="radio" value="2" ${num === '2' ? "checked" : ""}>
-                    <label for="nesting-order-2">Catergory > Source > Keyword</label>
-                </form>
-            </div>
-        `
-}
-
 // When user changes treemap view
-$("#legend").on("change", "#treemap-tile", () => {
+$("div").on("change", "#treemap-tile", () => {
      $("#svg").html("");
-    treemapLayout = $("#treemap-tile").val();
-    $("#legend").html(makeLegendHTML(nestingNum, treemapLayout));
+    $("#legend").html("");
     if (hasNestingOrderChanged) {
         create_treemap(reversed_data, $("#treemap-tile").val());
     } else {
@@ -260,10 +222,10 @@ $("#legend").on("change", "#treemap-tile", () => {
 });
 
 // When user changes nesting order
-$("#legend").on("change", 'input[type=radio][name=nesting-order]', () => {
+$("div").on("change", 'input[type=radio][name=nesting-order]', () => {
     $("#svg").html("");
-    nestingNum = $('input[type=radio][name=nesting-order]:checked').val();
-    $("#legend").html(makeLegendHTML(nestingNum, treemapLayout));
+    $("#legend").html("");
+    let nestingNum = $('input[type=radio][name=nesting-order]:checked').val();
     if (nestingNum === "1") {
         hasNestingOrderChanged = false;
         create_treemap(data, $("#treemap-tile").val());

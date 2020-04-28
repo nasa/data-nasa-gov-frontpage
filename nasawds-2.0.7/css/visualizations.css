@@ -1,6 +1,14 @@
+h2 {
+    margin: 3em 1.5em 0.6em 1.5em;
+}
+
+h5 {
+    margin-top: .2em;
+}
+
 #vis-container {
     display: flex;
-    margin: 3em 2em;
+    margin: 0 2em;
 }
 
 #svg {
@@ -8,13 +16,18 @@
     height: auto;
 }
 
-#legend {
-    width: 25%; 
+#legend-div {
+    width: 33%; 
     height: auto; 
-    overflow: scroll; 
-    /*white-space: nowrap; */
-    padding: 10px 10px; 
-    margin-top: 4%; 
+    padding: 0 10px;
+}
+
+#legend-form {
+    margin-bottom: 2em;
+}
+
+#legend {
+    height: auto; 
 }
 #legend #treemap-tile{
     white-space: nowrap;
@@ -30,26 +43,21 @@
         margin: 0 auto;    
     }
 
-    #legend {
+    #legend-div {
        width: 100%;
        display: flex;
+       flex-wrap: wrap;
        padding-top: 0;
     }
+    
 
-    #legend div {
-        width: 50%;
-        padding-top: 10px;
-        padding-right: 20%;
 
-    }
-
-    #legend svg {
-        margin: 0 auto;
-        width: 40%;
-    }
 }
 
 @media only screen and (max-width: 950px) {
+    h2 {
+        margin-top: 1.2em;
+    }
     #vis-container {
         margin-top: 0;
     }   
@@ -60,12 +68,5 @@
        width: 100%;
        display: block;
     }     
-    #legend div {
-        width: 90%;
-    }
 
-    #legend svg {
-        margin: 0 auto;
-        width: 90%;
-    }
 }

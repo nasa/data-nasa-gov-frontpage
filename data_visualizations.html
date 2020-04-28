@@ -209,9 +209,7 @@
 <div class="usa-overlay"></div>
 
 <main id="main-content">
-    <!-- <div >
-        <h2 stlye="margin-top:4em;">Visualization of sources, categories, and keywords of the datasets categorized data.nasa.gov</h2>
-      </div> -->
+  <h2>Visualization of sources, categories, and keywords of the datasets categorized in data.nasa.gov</h2>
     <div id="vis-container">
       
 
@@ -219,50 +217,48 @@
 
       </div>
       
-      <div id="legend">
-        <div>
-          
-          <br>
-
-          <form>
+      <div id="legend-div">
+          <div style="white-space: wrap ;">
             <h5>Boxes are scaled by number of datasets. Each box represents a specific combination of source, category, and keyword.  </h5>
-      
+          
             <p>Holding your cursor over blank space in each box will bring up hover information</p>
-      
-            <p>Change grouping order to have source or category control colors</p>
-            <input id="nesting-order-1" name="nesting-order" type="radio" value="1" checked>
-            <label for="nesting-order-1">Source > Catergory > Keyword</label>
-
-            <input id="nesting-order-2" name="nesting-order" type="radio" value="2">
-            <label for="nesting-order-2">Catergory > Source > Keyword</label>
-            <br>
-            <div style="white-space: wrap ;">
               <p>
-                <small style="width:100%">
-                    NOTE: Only keywords with counts greater 
-                    than 100 are represented. For this reason,
-                    some sources and categories have been 
-                    excluded. In addition, a dataset can have 
-                    several categories and keywords associated 
-                    with it. Note that the data gets updated 
-                    periodically and doesn’t reflect very 
-                    recently uploaded datasets.
-                </small>
+                  <small style="width:100%">
+                      NOTE: Only keywords with counts greater 
+                      than 100 are represented. For this reason,
+                      some sources and categories have been 
+                      excluded. In addition, a dataset can have 
+                      several categories and keywords associated 
+                      with it. Note that the data gets updated 
+                      periodically and doesn’t reflect very 
+                      recently uploaded datasets.
+                  </small>
               </p>
-            </div>
-          <br>
-             <label for="treemap-tile">Treemap view:</label>
-            <select id="treemap-tile">
-                <option value="squarify" selected>Squarify</option>
-                <option value="binary">Binary</option>
-                <!-- <option value="slice">Slice</option> -->
-                <!-- <option value="dice">Dice</option> -->
-                <!-- <option value="slice_dice">Slice & Dice</option> -->
-            </select>
-          </form>
-        </div>
+          </div>
+          <div id="legend">
+
+          </div>
+          <div id="legend-form">
+              <form>
+          
+                  <p>Change grouping order to have source or category control colors</p>
+                  <input id="nesting-order-1" name="nesting-order" type="radio" value="1" checked>
+                  <label for="nesting-order-1">Source > Catergory > Keyword</label>
+      
+                  <input id="nesting-order-2" name="nesting-order" type="radio" value="2">
+                  <label for="nesting-order-2">Catergory > Source > Keyword</label>
+                  <br>
+                  <label for="treemap-tile">Treemap view:</label>
+                  <select id="treemap-tile">
+                      <option value="squarify" selected>Squarify</option>
+                      <option value="binary">Binary</option>
+                      <!-- <option value="slice">Slice</option> -->
+                      <!-- <option value="dice">Dice</option> -->
+                      <!-- <option value="slice_dice">Slice & Dice</option> -->
+                  </select>
+              </form>
+          </div>
       </div>
-    </div>
 </main>
 </body>
 <script src="nasawds-2.0.7/js/visualizations.js"></script>
@@ -286,9 +282,6 @@
     };
     // Flag for when the user has changed the nesting order
     var hasNestingOrderChanged = false;
-    // Default user treemap settings
-    var nestingNum = "1";
-    var treemapLayout = "squarify";
 
     d3.json("nasawds-2.0.7/json/data.json").then(d => {
       d3.json("nasawds-2.0.7/json/acronyms.json").then(a => {
