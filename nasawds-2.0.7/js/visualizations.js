@@ -88,7 +88,7 @@ var create_treemap = (data, tile) => {
         
         var svg2 = d3.select("#legend")
             .append("svg")
-            .attr("width", 400)
+            .attr("width", 500)
             .attr("height", 25 * legendKeys.length);
         
         // Legend vis
@@ -128,11 +128,11 @@ var ID = (type) => {
     return out;
 };
 
-swap_acronyms = (source) => {
-    if (source in acronyms) {
-        return acronyms[source]["name"];
+swap_acronyms = (str) => {
+    if (str in acronyms) {
+        return toTitleCase(acronyms[str]["name"]);
     } else {
-        return source;
+        return toTitleCase(str);
     }
 }
 
@@ -141,6 +141,7 @@ clean_data_treemap = (data) => {
     for (let i = 0; i < data["children"].length; i++) {
         data["children"][i]["name"] = swap_acronyms(data["children"][i]["name"]);
         for (let j = 0; j < data["children"][i]["children"].length; j++) {
+            data["children"][i]["children"][j]["name"] = swap_acronyms(data["children"][i]["children"][j]["name"]);
             // Removing category if empty
             if (data["children"][i]["children"][j]["children"].length === 0) {
                 data["children"][i]["children"].splice(j, 1);
@@ -206,6 +207,13 @@ changeNesting = (data) => {
         out["children"].push(temp_obj);
     }
     return out;
+}
+
+// Capitilizes first letter of every word in a string
+var toTitleCase = (str) => {
+    return str.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
 
 ///=======/// EVENT LISTENERS: ///=======///

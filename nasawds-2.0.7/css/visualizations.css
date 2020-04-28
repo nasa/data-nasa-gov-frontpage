@@ -28,9 +28,11 @@ h5 {
 
 #legend {
     height: auto; 
+    overflow: scroll; 
+    white-space: nowrap; 
 }
 #legend #treemap-tile{
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 @media only screen and (max-width: 1090px) {
