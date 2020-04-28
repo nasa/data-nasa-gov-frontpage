@@ -1,6 +1,6 @@
 // Used to create treemap, and its legend
 var create_treemap = (data, tile) => {
-    let color = d3.scaleOrdinal(d3.schemeSet1);
+    let color = d3.scaleOrdinal(d3.schemePaired);
     let format = d3.format(",d");
     let height = 780;
     let width = 780;
@@ -22,7 +22,7 @@ var create_treemap = (data, tile) => {
         // Tree map vis
         const svg = d3.select("#svg").append("svg")
             .attr("viewBox", [0, 0, width + margin.left + margin.right, height + margin.top + margin.bottom])
-            .style("font", "11px sans-serif");
+            .style("font", "0.6em sans-serif");
 
         const leaf = svg.selectAll("g")
             .data(root.leaves())
@@ -52,7 +52,7 @@ var create_treemap = (data, tile) => {
                 } else {
                     outStr = `Keyword: ${d.data.name}\nUpload Source: ${arr[1]}\nCategory: ${arr[2]}\n\nCount: ${format(d.value)}`;
                 }
-                return `https://data.nasa.gov/browse?q= ${d.data.name}\n+ ${arr[1]}\n+ ${arr[2]}\n\n+ ${format(d.value)}&sortBy=relevance`
+                return `https://data.nasa.gov/browse?q= ${d.data.name}\n+ ${arr[1]}\n+ ${arr[2]}\n\n&sortBy=relevance`
             })
             .append("rect")
             .attr("id", d => (d.leafUid = ID("leaf")).id)
@@ -111,7 +111,7 @@ var create_treemap = (data, tile) => {
 
         legend.selectAll('.legend')
             .append('text')
-            .attr('font-size', 14)
+            .attr('font-size', "1em")
             .attr('transform', (d, i) => `translate(19, 12)`)
             .text((d) => {return d})
     }
