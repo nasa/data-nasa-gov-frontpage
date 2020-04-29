@@ -1,13 +1,13 @@
 import json
 
 cat_dict = {}
-duplicates = {
-    "NASA/GSFC/SED/ESD/GCDC/OB.DAAC" : "OB.DAAC"
-}
 d3_dict = {
     "name": "datasets",
     "children": []
 }
+
+with open("duplicates.json", encoding="utf8") as f:
+    duplicates = json.load(f)
 
 def findIndex(lst, key, value):
     for i, dic in enumerate(lst):
@@ -22,8 +22,8 @@ with open('data.json', encoding="utf8") as json_file:
         if "publisher" in ds:
             for key, val in ds["publisher"].items():
                 if key == "name":
-                    if val in duplicats:
-                        val = duplicats[val]
+                    if val in duplicates:
+                        val = duplicates[val]
                     if val not in cat_dict:
                         cat_dict[val] = {}
 
@@ -37,7 +37,7 @@ with open('data.json', encoding="utf8") as json_file:
                                     cat_dict[val][cat][kw] += 1
                                 else:
                                     cat_dict[val][cat][kw] = 1
-    
+
     for src, cats in cat_dict.items():
         if src == "N/A":
             continue
@@ -56,6 +56,8 @@ with open('data.json', encoding="utf8") as json_file:
             for kw, count in kws.items():
                 if kw == "ngda":
                     continue
+                
+                # SETS KW COUNT THRESHOLD
                 if count > 100:
                     kw_out = {
                         "name": kw,
@@ -64,8 +66,6 @@ with open('data.json', encoding="utf8") as json_file:
                     index_cat = findIndex(d3_dict["children"][index_src]["children"], "name", cat)
                     d3_dict["children"][index_src]["children"][index_cat]["children"].append(kw_out)
     
-    for i in d3_dict['children']:
-        print(i["name"])
 
     with open('processed_data.json', 'w') as f:
         json.dump(d3_dict, f)
