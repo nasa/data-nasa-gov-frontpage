@@ -9,6 +9,7 @@ d3_dict = {
 with open("duplicates.json", encoding="utf8") as f:
     duplicates = json.load(f)
 
+# Finds index of a dict in a list
 def findIndex(lst, key, value):
     for i, dic in enumerate(lst):
         if dic[key] == value:
@@ -18,6 +19,15 @@ def findIndex(lst, key, value):
 with open('data.json', encoding="utf8") as json_file:
     data = json.load(json_file)
 
+    # This for loop creates the cat_dict which is structured as follows:
+    # {
+    #     source: {
+    #         category: {
+    #             keyword: count,
+    #             ...
+    #         }, ...
+    #     }, ...
+    # }
     for ds in data['dataset']:
         if "publisher" in ds:
             for key, val in ds["publisher"].items():
@@ -38,6 +48,28 @@ with open('data.json', encoding="utf8") as json_file:
                                 else:
                                     cat_dict[val][cat][kw] = 1
 
+
+    # This for loop creates then creates the d3_dict using
+    # the cat_dict and is structured as follows:
+    # {
+    #     "name": "dataset",
+    #     "children": [
+    #         {
+    #             "name": source,
+    #             "children": [
+    #                 {
+    #                     "name": category,
+    #                     "children": [
+    #                         {
+    #                             "name": keyword,
+    #                             "value": count
+    #                         }, ...
+    #                     ]
+    #                 }, ...
+    #             ]
+    #         }, ...
+    #     ]
+    # }
     for src, cats in cat_dict.items():
         if src == "N/A":
             continue
@@ -54,9 +86,10 @@ with open('data.json', encoding="utf8") as json_file:
             index_src = findIndex(d3_dict["children"], "name", src)
             d3_dict["children"][index_src]["children"].append(out_obj2)
             for kw, count in kws.items():
+                # Ignores "ngda"
                 if kw == "ngda":
                     continue
-                
+
                 # SETS KW COUNT THRESHOLD
                 if count > 100:
                     kw_out = {
@@ -66,6 +99,5 @@ with open('data.json', encoding="utf8") as json_file:
                     index_cat = findIndex(d3_dict["children"][index_src]["children"], "name", cat)
                     d3_dict["children"][index_src]["children"][index_cat]["children"].append(kw_out)
     
-
     with open('processed_data.json', 'w') as f:
         json.dump(d3_dict, f)
