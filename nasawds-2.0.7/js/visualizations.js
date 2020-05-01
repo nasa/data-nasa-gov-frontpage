@@ -43,7 +43,7 @@ var create_treemap = (data, tile) => {
             });
 
         leaf.append("a")
-            .attr("xlinke:href", d => {
+            .attr("xlink:href", d => {
                 let arr = d.ancestors().reverse().map(d => d.data.name)
                 let outStr;
                 // Creating the tooltip text
@@ -81,6 +81,7 @@ var create_treemap = (data, tile) => {
                 return d.data.name.split(/(?=[A-Z][a-z])|\s+/g).concat(format(d.value))
             })
             .join("tspan")
+            .attr("class", "node-text")
             .attr("x", 3)
             .attr("y", (d, i, nodes) => `${(i === nodes.length - 1) * 0.3 + 1.1 + i * 0.9}em`)
             .attr("fill-opacity", (d, i, nodes) => i === nodes.length - 1 ? 0.7 : null)
