@@ -16,6 +16,10 @@ h5 {
     height: auto;
 }
 
+.node-text {
+    pointer-events: none;
+}
+
 #legend-div {
     width: 33%; 
     height: auto; 
@@ -31,8 +35,9 @@ h5 {
     overflow: scroll; 
     white-space: nowrap; 
 }
-#legend #treemap-tile{
-    /* white-space: nowrap; */
+
+.legend-text {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1090px) {

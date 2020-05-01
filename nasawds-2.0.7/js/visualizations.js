@@ -43,7 +43,7 @@ var create_treemap = (data, tile) => {
             });
 
         leaf.append("a")
-            .attr("xlinke:href", d => {
+            .attr("xlink:href", d => {
                 let arr = d.ancestors().reverse().map(d => d.data.name)
                 let outStr;
                 // Creating the tooltip text
@@ -81,6 +81,7 @@ var create_treemap = (data, tile) => {
                 return d.data.name.split(/(?=[A-Z][a-z])|\s+/g).concat(format(d.value))
             })
             .join("tspan")
+            .attr("class", "node-text")
             .attr("x", 3)
             .attr("y", (d, i, nodes) => `${(i === nodes.length - 1) * 0.3 + 1.1 + i * 0.9}em`)
             .attr("fill-opacity", (d, i, nodes) => i === nodes.length - 1 ? 0.7 : null)
@@ -113,7 +114,11 @@ var create_treemap = (data, tile) => {
             .append('text')
             .attr('font-size', "1em")
             .attr('transform', (d, i) => `translate(19, 12)`)
+            .attr("class", "legend-text")
             .text((d) => {return d})
+            .on("click", (d) => {
+                document.location.href = `https://data.nasa.gov/browse?q=${d}&sortBy=relevance`
+            })
     }
     chart();
 }
@@ -128,6 +133,7 @@ var ID = (type) => {
     return out;
 };
 
+// Swaps out acronyms using acronyms.json
 swap_acronyms = (str) => {
     if (str in acronyms) {
         return toTitleCase(acronyms[str]["name"]);
@@ -139,18 +145,24 @@ swap_acronyms = (str) => {
 // Removes Categories and sources if empty
 clean_data_treemap = (data) => {
     for (let i = 0; i < data["children"].length; i++) {
+        // Checking if acronym has to be switched out
         data["children"][i]["name"] = swap_acronyms(data["children"][i]["name"]);
         for (let j = 0; j < data["children"][i]["children"].length; j++) {
+            // Checking if acronym has to be switched out
             data["children"][i]["children"][j]["name"] = swap_acronyms(data["children"][i]["children"][j]["name"]);
             // Removing category if empty
             if (data["children"][i]["children"][j]["children"].length === 0) {
                 data["children"][i]["children"].splice(j, 1);
+                // Going back an index since element at current index
+                // Just got spliced
                 j--;
             }
         }
         // Remove Source if its empty
         if (data["children"][i]["children"].length === 0) {
             data.children.splice(i, 1);
+            // Going back an index since element at current index
+            // Just got spliced
             i--;
         } 
     }
@@ -163,6 +175,7 @@ clean_data_treemap = (data) => {
 changeNesting = (data) => {
     var out = {"name": "datasets", "children": []};
     var obj = {};
+    // Used to hold objects before being appened
     var temp_obj;
     var temp_obj2;
     var temp_obj3;
