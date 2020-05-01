@@ -285,11 +285,15 @@
     // Flag for when the user has changed the nesting order
     var hasNestingOrderChanged = false;
 
+    // First load data.json (which already processed)
     d3.json("nasawds-2.0.7/json/data.json").then(d => {
+      // Then load acronyms.json
       d3.json("nasawds-2.0.7/json/acronyms.json").then(a => {
+          // setting global vars
           acronyms = a;
           data = clean_data_treemap(d);
           reversed_data = changeNesting(data);
+          
           create_treemap(data, $("#treemap-tile").val());
       });
     });

@@ -1,5 +1,6 @@
 import json
 
+keyword_count_theshold = 100
 cat_dict = {}
 d3_dict = {
     "name": "datasets",
@@ -8,6 +9,9 @@ d3_dict = {
 
 with open("duplicates.json", encoding="utf8") as f:
     duplicates = json.load(f)
+
+with open("ignoreData.json", encoding="utf8") as f:
+    ignore_dict = json.load(f)
 
 # Finds index of a dict in a list
 def findIndex(lst, key, value):
@@ -71,7 +75,8 @@ with open('data.json', encoding="utf8") as json_file:
     #     ]
     # }
     for src, cats in cat_dict.items():
-        if src == "N/A":
+        # Ignores sources in ignoreData.json
+        if src in ignore_dict["source"]:
             continue
         out_obj = {
             "name": src,
@@ -79,6 +84,8 @@ with open('data.json', encoding="utf8") as json_file:
         }        
         d3_dict["children"].append(out_obj)
         for cat, kws in cats.items():
+            if cat in ignore_dict["category"]:
+                continue
             out_obj2 = {
                 "name": cat,
                 "children": []
@@ -86,12 +93,11 @@ with open('data.json', encoding="utf8") as json_file:
             index_src = findIndex(d3_dict["children"], "name", src)
             d3_dict["children"][index_src]["children"].append(out_obj2)
             for kw, count in kws.items():
-                # Ignores "ngda"
-                if kw == "ngda":
+                # Ignores keywords in ignoreData.json
+                if kw in ignore_dict["keyword"]:
                     continue
 
-                # SETS KW COUNT THRESHOLD
-                if count > 100:
+                if count > keyword_count_theshold:
                     kw_out = {
                         "name": kw,
                         "value": count
