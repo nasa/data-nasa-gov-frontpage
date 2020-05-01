@@ -113,7 +113,11 @@ var create_treemap = (data, tile) => {
             .append('text')
             .attr('font-size', "1em")
             .attr('transform', (d, i) => `translate(19, 12)`)
+            .attr("class", "legend-text")
             .text((d) => {return d})
+            .on("click", (d) => {
+                document.location.href = `https://data.nasa.gov/browse?q=${d}&sortBy=relevance`
+            })
     }
     chart();
 }
