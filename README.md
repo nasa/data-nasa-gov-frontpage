@@ -90,7 +90,7 @@ Example:
 ```
 
 #### Treemap Rectangle and Legend Key Links:
-When a user clicks on either a treemap rectangle or a legend key, they are redirected to data.nasa.gov's data catalog page. Changing where a user is redirected can be done inside of `nasawds-2.07/js/visualizations.js`. Updating the treemap rectangle link is done [here](https://github.com/nasa/data-nasa-gov-frontpage/blob/master/nasawds-2.0.7/js/visualizations.js#L55), and updating the legend key link is done [here](https://github.com/nasa/data-nasa-gov-frontpage/blob/master/nasawds-2.0.7/js/visualizations.js#L120)
+When a user clicks on either a treemap rectangle or a legend key, they are redirected to data.nasa.gov's data catalog page. Changing where a user is redirected can be done inside of `nasawds-2.07/js/visualizations.js`. Setting the treemap rectangle link is done [here](https://github.com/nasa/data-nasa-gov-frontpage/blob/master/nasawds-2.0.7/js/visualizations.js#L55), and setting the legend key link is done [here](https://github.com/nasa/data-nasa-gov-frontpage/blob/master/nasawds-2.0.7/js/visualizations.js#L120).
 
 #### Functions:
 `create_treemap(<data>, <format>)` function takes the `processed_data.json` as the first argument, and the treemap format (d3.treemapSquarify, d3.treemapBinary, d3.treemapSlice, d3.treemapDice, d3.treemapSliceDice) as the second. This function is responsible for rendering and appending the treemap to the site. 
