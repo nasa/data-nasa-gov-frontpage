@@ -219,9 +219,9 @@
               <li>
                 <a href="https://code.nasa.gov">Code.nasa.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="https://open.nasa.gov/explore/datanauts/" onfocusout = "new function(){closeSubMenu('extended-nav-section-one')}" >Datanauts <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
-              </li>
+              </li> -->
             </ul>
           </li>
           <li>
@@ -242,10 +242,27 @@
               </ul>
           </li>
           <li>
-            <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="extended-nav-section-three">
+            <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="extended-nav-section-three" onfocusin = "new function(){closeSubMenu('extended-nav-section-three')}">
+              <span>Technical Report Server</span>
+            </button>
+              <ul id="extended-nav-section-three" class="usa-nav-submenu" style="text-align:left; width: 212.83px">
+                <li>
+                    <a href="https://ntrs.nasa.gov/search">Public Search<img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
+                  </li>
+                  <li>
+                    <a href="https://ntrs.nasa.gov/">NASA Internal Search<img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
+                  </li>
+                  <li>
+                    <a href="https://sti.nasa.gov/what-is-the-ntrs/" onfocusout = "new function(){closeSubMenu('extended-nav-section-three')}">About <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
+                  </li>
+                  
+              </ul>
+          </li>
+          <!-- <li>
+            <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="extended-nav-section-four">
               <span>Code & Data from All Fed Agencies</span>
             </button>
-            <ul id="extended-nav-section-three" class="usa-nav-submenu" style="text-align:left; width: 283.33px">
+            <ul id="extended-nav-section-four" class="usa-nav-submenu" style="text-align:left; width: 283.33px">
               <li>
                 <a href="https://code.gov">Code.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
               </li>
@@ -253,7 +270,7 @@
                 <a href="https://data.gov" onfocusout = "new function(){closeSubMenu('extended-nav-section-three')}">Data.gov <img src="nasawds-2.0.7/img/external-link-alt-hover.png" alt="Exterrnal Link" class = "linkImg"></a>
               </li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </div>
     </nav>
@@ -342,7 +359,7 @@
       <div class="usa-width-two-thirds">
         <h3>NASA datasets are available through a number of different websites, not just data.nasa.gov.</h3>
         <h4>Open-Innovation Program</h4>
-        <p> Data.nasa.gov is the dataset-focused site of NASA's OCIO (Office of the Chief Information Officer) open-innovation program. There are also API.nasa.gov and Code.nasa.gov for APIs and Code respectively. Open.nasa.gov is the central page for open-innovation sites and acts as as a home for the datanauts program, which is a public outreach program where members of the public work with NASA datasets.</p>
+        <p> Data.nasa.gov is the dataset-focused site of NASA's OCIO (Office of the Chief Information Officer) open-innovation program. There are also API.nasa.gov and Code.nasa.gov for APIs and Code respectively. Open.nasa.gov is the central page for open-innovation sites.</p>
   
       </div>
     </section>
@@ -394,9 +411,9 @@
         <h2>Other NASA Data Sites and Science Archives</h2>
       </div>
       <div class = "usa-width-two-thirds">
-        <p>Additionally, NASA has a number of data archives, often geared around providing the public with datasets from a particular domain, field of science, or mission. Lastly, there are also open-data and open-code aggregator sites that collect open-data and open-code from across all federal government agencies; code.gov and data.gov. Both of these have some APIs for working with their datasets that make them worth checking out even if you're strickly interested in NASA data. </p>
+        <p>Additionally, NASA has a number of data archives, often geared around providing the public with datasets from a particular domain, field of science, or mission.  </p>
         <h3><a href="https://www.nasa.gov/open/data.html">nasa.gov/open/data</a> has a good overview of all the various science and mission data sites.</h3>
-        <h4>A few highligts includes:</h4>
+        <h4>A few key links:</h4>
         <ol>
             <li>
               <a href="https://pds.nasa.gov">Planetary Data System (PDS)</a>
@@ -408,9 +425,51 @@
               <a href="https://www.nasa.gov/open/data.html">List of Other NASA Science & Mission Data Archives</a>
           </li>
         </ol>
-        <a class="usa-button usa-button-big" onclick = "window.location = 'mailto:nasa-data@lists.arc.nasa.gov'" onkeypress = "window.location = 'mailto:nasa-data@lists.arc.nasa.gov'" tabindex = "0">Submit an issue if you know of another NASA data site that should be included!</a>
+        <a class="usa-button usa-button-small" onclick = "window.location = 'mailto:nasa-data@lists.arc.nasa.gov'" onkeypress = "window.location = 'mailto:nasa-data@lists.arc.nasa.gov'" tabindex = "0">Submit an issue if you know of another NASA data site that should be included!</a>
       </div>
     </div>
+    <br><br>
+    <div class="usa-grid">
+        <div class="usa-width-one-third">
+          <h2>NASA Tecnical Reports Server</h2>
+        </div>
+        <div class = "usa-width-two-thirds">
+          <p>You might also be interested in NASA technical reports, publications, or presentations. These are found on NASA Technical Reports Server or NRTS, which is run by NASA's <a href="https://sti.nasa.gov/">STI (Science & Technical Information) Program</a>. </p>
+          <h4>A few key links:</h4>
+          <ol>
+              <li>
+                <a href="https://sti.nasa.gov/">STI homepage</a>
+              </li>
+              <li>
+                <a href="https://ntrs.nasa.gov/">NRTS Search Page</a>
+            </li>
+            <li>
+                <a href="https://sti.nasa.gov/what-is-the-ntrs/">An "About" page that covers what type of content is covered by NRTS</a>
+            </li>
+          </ol>
+       
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="usa-grid">
+          <div class="usa-width-one-third">
+            <h2>Code and data from all US federal agencies</h2>
+          </div>
+          <div class = "usa-width-two-thirds">
+            <p>Code.gov and data.gov are aggregator sites run by GSA (General Services Administration) that collect open-data and open-code from across all U.S. federal government agencies. Code.nasa.gov and data.nasa.gov feed into code.gov and data.gov respectively. Data.gov has an APIs for working with their datasets that make them worth checking out even if you're strickly interested in NASA data.</p>
+            <h4>A few key links:</h4>
+            <ol>
+                <li>
+                  <a href="https://code.gov">Code.gov</a>
+                </li>
+                <li>
+                  <a href="https://data.gov">Data.gov</a>
+              </li>
+            </ol>
+         
+          </div>
+        </div>
   </section>
 
 </main>
