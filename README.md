@@ -7,6 +7,17 @@ This front-end only page serves as an easy to change front-page for the system t
 ## Contributing
 If you find any factual errors or places where additions could be made, please add it as an issue or submit a pull request. We accept pull requests from the public. 
 
+## Deployment
+
+This page is live under https://data.nasa.gov. 
+
+It used to be live under https://nasa.github.io/data-nasa-gov-frontpage/ as a github pages page, but now that redirects to https://data.nasa.gov as well. 
+
+The catalog itself is proxied in from a 3rd party SAAS.
+
+After changes are made here, the code changes can be updated on the appropriate server using the update bash script. Look internally for a more detailed description of the worflow. Only after the update on the server, will updates appear on data.nasa.gov. 
+
+
 ## Potentially Reusable Code Assets Leveraged by this Repository
 
 1. This page uses nasawds-2.0.7, which you can find here: https://github.com/nasa/nasawds which is based on GSA's <a href="https://github.com/uswds/uswds"> US web design service</a>. Both are open-source projects on Github.
