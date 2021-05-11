@@ -51,14 +51,7 @@
 <link rel="stylesheet" href="nasawds-2.0.7/css/nasawds.min.css">
 <link rel="stylesheet" href="non-nasawds-assets/css/sticky.css">
 
-<script>
-
-    if (window.location.href == "https://nasa.github.io/data-nasa-gov-frontpage"){
-        window.location.replace("https://data.nasa.gov")
-     console.log("redirected https://nasa.github.io/data-nasa-gov-frontpage/index.html to https://data.nasa.gov");
-    }
-    
-    </script>      
+  
     
 
 <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA" id="_fed_an_ua_tag"></script>
@@ -543,13 +536,25 @@
       
     }
     </script>
+
     <script>
 
-        // if (window.location == "https://nasa.github.io/data-nasa-gov-frontpage/index.html"){
-        //     window.location = "https://data.nasa.gov"
-        //  console.log("redirected https://nasa.github.io/data-nasa-gov-frontpage/index.html to https://data.nasa.gov");
+        
+        if(window.location.href == "https://nasa.github.io/data-nasa-gov-frontpage"){
+            window.location.replace("https://data.nasa.gov");
+        }
+        else if(window.location.href == "https://nasa.github.io/data-nasa-gov-frontpage/"){
+            window.location.replace("https://data.nasa.gov");
+        }
+        else if(window.location.href == "https://nasa.github.io/data-nasa-gov-frontpage/index.html"){
+            window.location.replace("https://data.nasa.gov");
+        }
+
+        // if(window.location.href == "http://localhost:8081/"){
+        //     window.location.replace("https://data.nasa.gov");
         // }
-        console.log("window.location = ", window.location)
+
+        // console.log("window.location = ", window.location)
         
         </script>      
         
