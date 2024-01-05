@@ -232,9 +232,13 @@ a:focus {
 /* The alert message box */
 .alert {
   padding: 20px;
-  background-color: #ff9800; /* Orange */
+  background-color: #aeb0b5; /* Orange */
   color: black;
   margin-bottom: 15px;
+}
+.alert a {
+  color: black;
+  text-decoration: underline;
 }
 
 /* The close button */
