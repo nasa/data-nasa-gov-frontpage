@@ -51,70 +51,20 @@
 <link rel="stylesheet" href="nasawds-2.0.7/css/nasawds.min.css">
 <link rel="stylesheet" href="non-nasawds-assets/css/sticky.css">
 
-  
-    
+ 
 
-<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA" id="_fed_an_ua_tag"></script>
-<script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function(){
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    console.log(modal);
-    // Get the button that opens the modal
-    var btn = document.getElementById("signinButton");
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on the button, open the modal
-    btn.onclick = function() {
-      modal.style.display = "block";
-      document.getElementById('contSignIn').focus();
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-  span.addEventListener('keydown', spanFunct);
-  document.getElementById("contSignIn").addEventListener('keydown', spanFunct);
-    function spanFunct(e) {
-      if(document.activeElement.id != "contSignIn"){
-        if (e.keyCode == 13 || (e.keyCode === 9 && e.shiftKey)){
-          console.log(document.activeElement.id);
-          modal.style.display = "none";
-          btn.focus();
-        }
-      }
-      else{
-        if (e.keyCode === 9 && !e.shiftKey){
-          modal.style.display = "none";
-          btn.focus();
-        }
-      }
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-    });
-    function exitModal(e){
-      console.log(this);
-      if(e.shiftKey){
-        document.getElementById("myModal").style.display = "none";
-      }
-    }
-</script>
-	  
   </head>
 <body class="page-landing-page layout-demo ">
 <script src="nasawds-2.0.7/js/nasawds.min.js"></script>
 <script src="non-nasawds-assets/js/gui.js"></script>
 <script src="non-nasawds-assets/js/jquery.min.js"></script>
 <script src="non-nasawds-assets/footer/OIT-footer.js"></script>
+<!-- custom js
+================================================== -->
+<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA" id="_fed_an_ua_tag"></script>
+<script src="index_page_scripts/index.js"></script>
+
   
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -124,7 +74,7 @@
     <span class="close" tabindex="0">&times;</span>
     <h2 style="margin-top: .5em">Important</h2>
     <p>If you are a <strong>NASA employee</strong> and would like to upload new datasets, please send us an email at <a href="mailto:nasa-data@lists.arc.nasa.gov">nasa-data@lists.arc.nasa.gov</a> requesting a "Publisher" account. For more information on uploading data, you can visit our <a href="https://developer.nasa.gov/OpenInnovation/data-nasa-gov-instructions" id = "SignInRM" >README</a> (this link will only work if you are connected to the NASA network)</p>
-    <button onclick="window.location.href = 'https://data.nasa.gov/login';" id= "contSignIn">Continue to Sign-In</button>
+    <button onclick="toSignin()" id= "contSignIn">Continue to Sign-In</button>
   </div>
 
 </div>
@@ -486,53 +436,7 @@
   </section>
 
 </main>
-<script>
-
-  var h = $("#myHeader");
-  h.addClass("sticky");
-  insertFooterHere("main-content");
-
-  // Creating link to data vis page
-  var getUrl = window.location;
-  var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-  if (baseUrl.search("127.0.0.1") !== -1) {
-    $("#vis-link").attr("href", `/data_visualizations.html`);
-  } else {
-    $("#vis-link").attr("href", `${baseUrl}/data_visualizations.html`);  
-  }
-  
-  // removes space between the first 2 blocks
-  var isThirds = true;
-  if($(window).width() < 951 && isThirds == true){
-      isThirds = false;
-      var fill = $("#filler");
-      var firstDiv = fill.prev();
-      var lastDiv = fill.next();
-      firstDiv.removeClass("usa-width-one-third").addClass("usa-width-one-half");
-      lastDiv.removeClass("usa-width-one-third").addClass("usa-width-one-half");
-      fill.remove();
-    }
-  $(window).resize(function(){
-    if($(this).width() >= 951 && isThirds == false){
-        isThirds = true;
-        var fill = $('<div class="usa-width-one-third" id="filler"><div class="usa-hero-callout usa-section-dark" style="visibility: hidden"></div></div>');
-        var firstDiv = $($(".usa-width-one-half")[2]);
-        var lastDiv = $($(".usa-width-one-half")[3]);
-        firstDiv.removeClass("usa-width-one-half").addClass("usa-width-one-third");
-        lastDiv.removeClass("usa-width-one-half").addClass("usa-width-one-third");
-        fill.insertBefore(lastDiv);
-    }
-    if($(this).width() < 951 && isThirds == true){
-      isThirds = false;
-      var fill = $("#filler");
-      var firstDiv = fill.prev();
-      var lastDiv = fill.next();
-      firstDiv.removeClass("usa-width-one-third").addClass("usa-width-one-half");
-      lastDiv.removeClass("usa-width-one-third").addClass("usa-width-one-half");
-      fill.remove();
-    }
-})
-</script>
+<script src="index_page_scripts/to_data_vis_page.js"></script>
 <script>
     function mouseOverIssue() {
         document.getElementById("submit_issue").innerHTML = "If your browser supports it, clicking will email nasa-data@lists.arc.nasa.gov.";
