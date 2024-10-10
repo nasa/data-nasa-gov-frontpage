@@ -6,7 +6,7 @@
 "NASA/GSFC/SED/ESD/GCDC/OB.DAAC":{"name":"Ocean Biology Data Center","link":"https://earthdata.nasa.gov/eosdis/daacs/obdaac"},
 "NSIDC":{"name":{"name":"Distributed Archive Center","link":"https://nsidc.org/daac"},
 "NASA NSIDC DAAC":{"name":"Distributed Archive Center","link":"https://nsidc.org/daac"},
-"ASF":{"name":{"name":"Alaka Satellite Facility","link":"https://earthdata.nasa.gov/eosdis/daacs/asf"},
+"ASF":{"name":{"name":"Alaska Satellite Facility","link":"https://earthdata.nasa.gov/eosdis/daacs/asf"},
 "Not provided":{"name":"Not Provided","link":""},
 "SEDAC":{"name":"Social Economic Data and Applications Center","link":"https://sedac.ciesin.columbia.edu/"},
 "NASA/GSFC/SED/ESD/GGL/CDDIS":{"name":"Crustal Dynamics Data Information System","link":"https://cddis.nasa.gov/"},

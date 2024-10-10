@@ -6,7 +6,7 @@
     "LP DAAC":{"type": "source", "name":"Land Processes Distributed Data Center","link":"https://lpdaac.usgs.gov/"},
     "NSIDC":{"type": "source", "name":"Distributed Archive Center","link":"https://nsidc.org/daac"},
     "NASA NSIDC DAAC":{"type": "source", "name":"Distributed Archive Center","link":"https://nsidc.org/daac"},
-    "ASF":{"type": "source", "name":"Alaka Satellite Facility","link":"https://earthdata.nasa.gov/eosdis/daacs/asf"},
+    "ASF":{"type": "source", "name":"Alaska Satellite Facility","link":"https://earthdata.nasa.gov/eosdis/daacs/asf"},
     "Not provided":{"type": "source", "name":"Not Provided","link":""},
     "SEDAC":{"type": "source", "name":"Social Economic Data and Applications Center","link":"https://sedac.ciesin.columbia.edu/"},
     "NASA/GSFC/SED/ESD/GGL/CDDIS":{"type": "source", "name":"Crustal Dynamics Data Information System","link":"https://cddis.nasa.gov/"},

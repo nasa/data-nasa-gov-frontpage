@@ -261,10 +261,10 @@
           
                   <p>Change grouping order to have source or category control colors</p>
                   <input id="nesting-order-1" name="nesting-order" type="radio" value="1" checked>
-                  <label for="nesting-order-1">Source > Catergory > Keyword</label>
+                  <label for="nesting-order-1">Source > Category > Keyword</label>
       
                   <input id="nesting-order-2" name="nesting-order" type="radio" value="2">
-                  <label for="nesting-order-2">Catergory > Source > Keyword</label>
+                  <label for="nesting-order-2">Category > Source > Keyword</label>
                   <br>
                   <label for="treemap-tile">Treemap view:</label>
                   <select id="treemap-tile">
@@ -284,11 +284,11 @@
     var h = $("#myHeader");
     h.addClass("sticky");
     insertFooterHere("main-content");
-    // Main data that has been cleaned: Source > Catergory > Keyword
+    // Main data that has been cleaned: Source > Category > Keyword
     var data;
     // Acronym definitions and links JSON
     var acronyms;
-    // Same data but the nesting is switched: Catergory > Source > Keyword
+    // Same data but the nesting is switched: Category > Source > Keyword
     var reversed_data;
     // Different treemap layouts
     var tiles = {

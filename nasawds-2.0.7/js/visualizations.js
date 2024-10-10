@@ -170,8 +170,8 @@ clean_data_treemap = (data) => {
 }
 
 // Changes the nesting order of the data from:
-// Source > Catergory > Keyword to ->
-// Catergory > Source > Keyword
+// Source > Category > Keyword to ->
+// Category > Source > Keyword
 changeNesting = (data) => {
     var out = {"name": "datasets", "children": []};
     var obj = {};
